@@ -188,6 +188,7 @@ void writeDS1620TempHighC(struct s_ds1620 *p_ds1620, int16_t temp)
 
   temp <<= 1;
   writeData(p_ds1620, CMD_WRITE_H_TEMP, temp, 9);
+  _delay_ms(WRITE_DELAY);
 
   SREG = tmpSREG;
 }
@@ -203,6 +204,7 @@ void writeDS1620TempLowC(struct s_ds1620 *p_ds1620, int16_t temp)
 
   temp <<= 1;
   writeData(p_ds1620, CMD_WRITE_L_TEMP, temp, 9);
+  _delay_ms(WRITE_DELAY);
 
   SREG = tmpSREG;
 }
